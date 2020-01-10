@@ -25,7 +25,7 @@ The dataset used in the project consists of an airline database and a flight rou
 The airline database with 3188 entries provides the following essential information about airline:
 
 |Attribute| Airport_id | Name | City | Country | IATA | ICAO | Latitude | Longitude | Timezone | Tzdatabase |
-|---------| ---------- | ---- | ---- | ------- | ---- | ---- | -------- | --------- | -------- | ---------- | 
+|---------| ---------- | ---- | ---- | ------- | ---- | ---- | -------- | --------- | -------- | ---------- |
 |Example  | 1665       | Geneva Cointrin International Airport | Geneva | Switzerland | GVA	| LSGG | 46.238098 | 6.10895 | 1 | Europe/Paris |
 
 The routes database with 66771 entries provides the following essential information about routes:
@@ -45,8 +45,23 @@ The OpenFlights/Airline Route Mapper Route Database contains 67,663 routes (EDGE
 
 ## Project Sturcture
 
+`preprocessing.ipynb` contains the code for preprocessing. We remove the flights which contain unrecorded airports or do not specify source/destination airports. Based on the preprocessed data, we build the weighted and non-weighted adjacency matrices and the graph.
+
+`explore_data.ipynb` contains the code for data exploration.  We explore the graph by computing degree distribution and centrality metrics. We also visualize all airports on the global map with continent borders. 
+
+`exploit_data.ipynb` contains the code for data exploitation. We implement spectral clustering algorithm and K-means algorithm on both weighted and non-weighted adjacency matrices. In order to discover communities without initialization, we also implement greedy modularity maximization and label propagation methods to detect communities.
+
+`data` folder contains all raw data, preprocessed data and some other additional data used for visualization.
+
+`map` folder contains all html files of the visualization results.
+
 ## Authors
 * **CAI Fengyu** [email](mailto:fengyu.cai@epfl.ch)
 * **CHEN Liangwei** [email](mailto:liangwei.chen@epfl.ch)
 * **LI Junze** [email](mailto:junze.li@epfl.ch)
 * **ZHOU Wanhao** [email](mailto:wanhao.zhou@epfl.ch)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
