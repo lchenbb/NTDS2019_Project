@@ -19,13 +19,13 @@ The following python modules are required to re-produce the results obtained.
 * [scikit-learn 0.19.1](https://scikit-learn.org/) `pip3 install -user scikit-learn==0.19.1`
 * [seaborn 0.8.1](https://seaborn.pydata.org/) `pip install -user seaborn==0.8.1`
 
-## Dataset
-The dataset used in the project consists of an airline database and a flight routes database.
+## Datasets
+The dataset used in the project consists of an airline database and a flight routes database from [https://openflights.org/data.html#route](https://openflights.org/data.html#route).
 
 The airline database with 3188 entries provides the following essential information about airline:
 
 |Attribute| Airport_id | Name | City | Country | IATA | ICAO | Latitude | Longitude | Timezone | Tzdatabase |
-|---------| ---------- | ---- | ---- | ------- | ---- | ---- | -------- | --------- | -------- | ---------- |
+|---------| ---------- | ---- | ---- | ------- | ---- | ---- | -------- | --------- | -------- | ---------- | 
 |Example  | 1665       | Geneva Cointrin International Airport | Geneva | Switzerland | GVA	| LSGG | 46.238098 | 6.10895 | 1 | Europe/Paris |
 
 The routes database with 66771 entries provides the following essential information about routes:
@@ -34,20 +34,12 @@ The routes database with 66771 entries provides the following essential informat
 | --------- | ------- | ---------- | -------------- | ----------------- | ------------------- | ---------------------- | ----- | --------- |
 | Example   | AB      | 214        | GVA            | 1665              | MAD                 | 1229                   | 0     | 320 319   |
 
-The OpenFlights/Airline Route Mapper Route Database contains 67,663 routes (EDGES) between 3,321 airports (NODES) on 548 airlines spanning the globe.
-
-|          | Description                                 | Amount |
-| -------- | ------------------------------------------- | -----: |
-| nodes    | airports                                    |  3,321 |
-| edges    | count of flights connecting airports        | 67,663 |
-| features | average number of stops of outbound flights |      1 |
-| labels   | N/A                                         |    N/A |
 
 ## Project Sturcture
 
 `preprocessing.ipynb` contains the code for preprocessing. We remove the flights which contain unrecorded airports or do not specify source/destination airports. Based on the preprocessed data, we build the weighted and non-weighted adjacency matrices and the graph.
 
-`explore_data.ipynb` contains the code for data exploration.  We explore the graph by computing degree distribution and centrality metrics. We also visualize all airports on the global map with continent borders. 
+`explore_data.ipynb` contains the code for data exploration.  We explore the graph by computing degree distribution and centrality metrics. We also visualize all airports on the global map with continent borders.
 
 `exploit_data.ipynb` contains the code for data exploitation. We implement spectral clustering algorithm and K-means algorithm on both weighted and non-weighted adjacency matrices. In order to discover communities without initialization, we also implement greedy modularity maximization and label propagation methods to detect communities.
 
@@ -55,6 +47,10 @@ The OpenFlights/Airline Route Mapper Route Database contains 67,663 routes (EDGE
 
 `map` folder contains all html files of the visualization results.
 
+`doc` folder contains our report for this project.
+
+## Visualizations
+The visualizations of our results are availbale [here](https://wanhaozhou.github.io/docs/display.html).
 ## Authors
 * **CAI Fengyu** [email](mailto:fengyu.cai@epfl.ch)
 * **CHEN Liangwei** [email](mailto:liangwei.chen@epfl.ch)
@@ -64,4 +60,3 @@ The OpenFlights/Airline Route Mapper Route Database contains 67,663 routes (EDGE
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
